@@ -11,16 +11,16 @@
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li class="{{ Request::is('admin/stokdarah*') ? 'active':'' }}">
                     <a href="index.html"><i class="menu-icon fa fa-tint fa-lg"></i> Stok Darah </a>
                 </li>
-                <li class="">
+                <li class="{{ Request::is('admin/jadwaldd*') ? 'active':'' }}">
                     <a href="index.html"> <i class="menu-icon fa fa-calendar"></i>Jadwal Donor </a>
                 </li>
-                <li class="">
+                <li class="{{ Request::is('admin/pendonor*') ? 'active':'' }}">
                     <a href="index.html"> <i class="menu-icon fa fa-clipboard"></i>Data Pendonor </a>
                 </li>
-                <li class="">
+                <li class="{{ Request::is('admin/kegiatan*') ? 'active':'' }}">
                     <a href="index.html"> <i class="menu-icon fa fa-info"></i>Kegiatan </a>
                 </li>
             </ul>

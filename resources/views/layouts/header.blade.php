@@ -5,7 +5,7 @@
         <div class="col-sm-7">
             <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
             <div class="header-left">
-                <h5 class="text-danger mt-2"><i>Data Stok Darah</i></h5>
+                <h5 class="text-danger mt-2"><i>@yield('header_text')</i></h5>
             </div>
         </div>
 
