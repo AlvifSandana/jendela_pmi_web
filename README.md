@@ -1,5 +1,5 @@
 ## Jendela PMI (admin web)
-powered by [Laravel](https://laravel.com/)
+powered by [Laravel](https://laravel.com/) and [Sufee](https://colorlib.com/polygon/sufee/index.html)
 
 ### To Do
 Fitur yang sedang dikerjakan:
