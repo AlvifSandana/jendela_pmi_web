@@ -12,10 +12,10 @@ Fitur yang sedang dikerjakan:
 #### Pages
 - [x] Login
 - [x] Dashboard
-- [ ] Stok Darah
-- [ ] Jadwal DD
-- [ ] Data Pendonor
-- [ ] Kegiatan
+- [x] Stok Darah
+- [x] Jadwal DD
+- [x] Data Pendonor
+- [x] Kegiatan
 
 #### Process
 - [ ] (api) CRUD Pendonor
