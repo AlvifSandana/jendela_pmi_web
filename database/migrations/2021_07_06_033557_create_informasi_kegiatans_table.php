@@ -13,8 +13,13 @@ class CreateInformasiKegiatansTable extends Migration
      */
     public function up()
     {
-        Schema::create('informasi_kegiatans', function (Blueprint $table) {
-            $table->id();
+        Schema::create('informasi_kegiatan', function (Blueprint $table) {
+            $table->id('id_kegiatan');
+            $table->string('nama_kegiatan', 100);
+            $table->string('tanggal_kegiatan', 45);
+            $table->string('lokasi_kegiatan', 60);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('foto', 45);
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateInformasiKegiatansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('informasi_kegiatans');
+        Schema::dropIfExists('informasi_kegiatan');
     }
 }

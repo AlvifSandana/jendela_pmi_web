@@ -13,8 +13,19 @@ class CreatePendonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pendonors', function (Blueprint $table) {
+        Schema::create('pendonor', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_pendonor', 50);
+            $table->string('email', 50)->unique();
+            $table->string('password', 191);
+            $table->string('alamat', 50);
+            $table->string('telepon', 12);
+            $table->string('status', 45);
+            $table->string('photo', 45);
+            $table->string('api_token', 191);
+            $table->string('remember_token', 100);
+            $table->foreignId('roles_id')->constrained('roles')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +37,6 @@ class CreatePendonorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendonors');
+        Schema::dropIfExists('pendonor');
     }
 }

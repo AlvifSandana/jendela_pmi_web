@@ -13,8 +13,11 @@ class CreateStokDarahsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stok_darahs', function (Blueprint $table) {
+        Schema::create('stok_darah', function (Blueprint $table) {
             $table->id();
+            $table->string('produk', 45);
+            $table->string('jenis_darah', 45);
+            $table->string('jumlah', 45);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateStokDarahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stok_darahs');
+        Schema::dropIfExists('stok_darah');
     }
 }

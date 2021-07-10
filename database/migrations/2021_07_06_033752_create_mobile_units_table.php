@@ -13,8 +13,13 @@ class CreateMobileUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mobile_units', function (Blueprint $table) {
+        Schema::create('mobile_unit', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal_donor');
+            $table->string('lokasi_donor', 50);
+            $table->string('waktu_mulai', 45);
+            $table->string('waktu_selesai', 45);
+            $table->string('deskripsi', 100);
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateMobileUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mobile_units');
+        Schema::dropIfExists('mobile_unit');
     }
 }

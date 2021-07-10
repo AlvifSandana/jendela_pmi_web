@@ -13,8 +13,11 @@ class CreateNotifikasiWaktuDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifikasi_waktu_donors', function (Blueprint $table) {
+        Schema::create('notifikasi_waktu_donor', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis_darah', 20);
+            $table->dateTime('waktu_donor');
+            $table->foreignId('pendonor_id')->constrained('pendonor')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateNotifikasiWaktuDonorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifikasi_waktu_donors');
+        Schema::dropIfExists('notifikasi_waktu_donor');
     }
 }
