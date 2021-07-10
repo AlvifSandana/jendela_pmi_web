@@ -13,27 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.stokdarah');
-});
+// Stok Darah route
+Route::get('admin/stokdarah', 'StokDarahController@index')->name('stokdarah.index');
 
-Route::get('/login', function () {
-    return view('admin.login');
-});
+// Jadwal Donor route
+Route::get('admin/jadwaldonor', 'JadwalDonorController@index')->name('jadwaldonor.index');
 
-Route::get('admin/pendonor', function () {
-    return view('admin.datapendonor');
-});
+// Data Pendonor route
+Route::get('admin/pendonor', 'PendonorController@index')->name('pendonor.index');
 
-Route::get('admin/stokdarah', function () {
-    return view('admin.stokdarah');
-});
-
-Route::get('admin/kegiatan', function () {
-    return view('admin.kegiatan');
-});
-
-Route::get('admin/jadwaldd', function () {
-    return view('admin.jadwaldd');
-});
-
+// Kegiatan route
+Route::get('admin/kegiatan', 'KegiatanController@index')->name('kegiatan.index');
