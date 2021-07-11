@@ -7,7 +7,7 @@ Fitur yang sedang dikerjakan:
 #### Authentication
 - [ ] Admin login
 - [ ] (api) User login & register
-- [ ] (api) Pendonor login & register
+- [x] (api) Pendonor login & register
 
 #### Pages
 - [x] Login
@@ -20,5 +20,5 @@ Fitur yang sedang dikerjakan:
 #### Process
 - [ ] (api) CRUD Pendonor
 - [ ] (api) CRUD User
-- [ ] (api) Get resource from url sources
+- [ ] Get resource from url sources
 - [ ] CRUD Admin
