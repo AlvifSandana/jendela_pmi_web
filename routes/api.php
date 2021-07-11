@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/reg/pendonor', 'api\AuthController@registerPendonor')->name('api.auth.register.pendonor');
+Route::post('/login/pendonor', 'api\AuthController@loginPendonor')->name('api.auth.login.pendonor');
