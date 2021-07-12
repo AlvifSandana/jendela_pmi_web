@@ -20,3 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/reg/pendonor', 'api\AuthController@registerPendonor')->name('api.auth.register.pendonor');
 Route::post('/login/pendonor', 'api\AuthController@loginPendonor')->name('api.auth.login.pendonor');
+
+Route::apiResources([
+    'jadwaldonor'   => 'api\JadwalDonorController',
+    'kegiatan'      => 'api\KegiatanController',
+    'stokdarah'     => 'api\StokDarahController'
+]);

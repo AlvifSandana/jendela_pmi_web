@@ -18,7 +18,7 @@ Fitur yang sedang dikerjakan:
 - [x] Kegiatan
 
 #### Process
-- [ ] (api) CRUD Pendonor
-- [ ] (api) CRUD User
+- [x] (api) CRUD Pendonor
+- [x] (api) CRUD User
 - [ ] Get resource from url sources
 - [ ] CRUD Admin
