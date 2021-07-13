@@ -11,7 +11,7 @@
 
         <div class="col-sm-5">
             <div class="user-area dropdown float-right">
-                <a href="" class="btn btn-danger shadow">Keluar</a>
+                <a href="{{ route('logout') }}" class="btn btn-danger shadow">Keluar</a>
             </div>
         </div>
     </div>

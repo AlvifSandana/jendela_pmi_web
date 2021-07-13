@@ -38,7 +38,7 @@
   <div class="sufee-login d-flex align-content-center flex-wrap">
     <div class="container">
       <div class="login-content">
-
+        @include('layouts.flash')
         <div class="login-form">
           <div class="login-logo mt-2 mb-4">
             <a href="index.html">
@@ -46,12 +46,14 @@
                 style="width: 50%;">
             </a>
           </div>
-          <form class=" text-center">
+          <form action="{{ route('login.do') }}" class="text-center" method="POST">
+            @csrf
+            @method('POST')
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email">
+              <input type="email" name="email" class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
             <button type="submit" class="btn bg-merah text-white shadow m-b-30 m-t-30 mb-4"
               style="width: 80px !important;">Masuk</button>

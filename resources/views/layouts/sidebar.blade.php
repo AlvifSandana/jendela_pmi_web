@@ -12,16 +12,16 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('admin/stokdarah*') ? 'active':'' }}">
-                    <a href="{{ route('stokdarah.index') }}"><i class="menu-icon fa fa-tint fa-lg"></i>Stok Darah </a>
+                    <a href="{{ route('admin.stokdarah.index') }}"><i class="menu-icon fa fa-tint fa-lg"></i>Stok Darah </a>
                 </li>
                 <li class="{{ Request::is('admin/jadwaldonor*') ? 'active':'' }}">
-                    <a href="{{ route('jadwaldonor.index') }}"> <i class="menu-icon fa fa-calendar"></i>Jadwal Donor </a>
+                    <a href="{{ route('admin.jadwaldonor.index') }}"> <i class="menu-icon fa fa-calendar"></i>Jadwal Donor </a>
                 </li>
                 <li class="{{ Request::is('admin/pendonor*') ? 'active':'' }}">
-                    <a href="{{ route('pendonor.index') }}"> <i class="menu-icon fa fa-clipboard"></i>Data Pendonor </a>
+                    <a href="{{ route('admin.pendonor.index') }}"> <i class="menu-icon fa fa-clipboard"></i>Data Pendonor </a>
                 </li>
                 <li class="{{ Request::is('admin/kegiatan*') ? 'active':'' }}">
-                    <a href="{{ route('kegiatan.index') }}"> <i class="menu-icon fa fa-info"></i>Kegiatan </a>
+                    <a href="{{ route('admin.kegiatan.index') }}"> <i class="menu-icon fa fa-info"></i>Kegiatan </a>
                 </li>
             </ul>
         </div>

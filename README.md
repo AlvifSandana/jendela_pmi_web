@@ -5,8 +5,7 @@ powered by [Laravel](https://laravel.com/) and [Sufee](https://colorlib.com/poly
 Fitur yang sedang dikerjakan:
 
 #### Authentication
-- [ ] Admin login
-- [ ] (api) User login & register
+- [x] Admin login
 - [x] (api) Pendonor login & register
 
 #### Pages
