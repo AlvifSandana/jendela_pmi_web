@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class JadwalDonorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('tokencheck');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,7 +41,7 @@ class JadwalDonorController extends Controller
                 'status'    => 'error',
                 'message'   => $th->getMessage(),
                 'data'      => []
-            ]);
+            ], 500);
         }
     }
 

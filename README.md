@@ -7,6 +7,7 @@ Fitur yang sedang dikerjakan:
 #### Authentication
 - [x] Admin login
 - [x] (api) Pendonor login & register
+- [x] (api) middleware -> manual check api_token
 
 #### Pages
 - [x] Login
