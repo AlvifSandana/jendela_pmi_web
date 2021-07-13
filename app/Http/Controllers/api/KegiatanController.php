@@ -29,7 +29,7 @@ class KegiatanController extends Controller
                     'status'    => 'failed',
                     'message'   => 'Data tidak tersedia',
                     'data'      => []
-                ]);
+                ], 404);
             }
         } catch (\Throwable $th) {
             // when error
@@ -37,7 +37,7 @@ class KegiatanController extends Controller
                 'status'    => 'error',
                 'message'   => $th->getMessage(),
                 'data'      => []
-            ]);
+            ], 500);
         }
     }
 

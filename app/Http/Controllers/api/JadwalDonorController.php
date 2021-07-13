@@ -27,13 +27,13 @@ class JadwalDonorController extends Controller
                     'status'    => 'success',
                     'message'   => 'Data tersedia',
                     'data'      => $jadwal_donor
-                ]);
+                ], 200);
             } else {
                 return response()->json([
                     'status'    => 'failed',
                     'message'   => 'Data tidak tersedia',
                     'data'      => []
-                ]);
+                ], 404);
             }
         } catch (\Throwable $th) {
             // when error

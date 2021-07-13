@@ -23,13 +23,13 @@ class StokDarahController extends Controller
                     'status'    => 'success',
                     'message'   => 'Data tersedia',
                     'data'      => $stok_darah
-                ]);
+                ], 200);
             } else {
                 return response()->json([
                     'status'    => 'failed',
                     'message'   => 'Data tidak tersedia',
                     'data'      => []
-                ]);
+                ], 404);
             }
         } catch (\Throwable $th) {
             // when error
@@ -37,7 +37,7 @@ class StokDarahController extends Controller
                 'status'    => 'error',
                 'message'   => $th->getMessage(),
                 'data'      => []
-            ]);
+            ], 500);
         }
     }
 
