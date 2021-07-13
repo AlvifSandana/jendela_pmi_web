@@ -35,7 +35,7 @@
 @endif
 
 @if ($errors->any())
-<div class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
+<div class="alert alert-danger alert-dismissible fade show col-md-12 pl-5 pr-5" role="alert">
     <strong>Error!</strong>
     <ul>
         @foreach ($errors->all() as $error)

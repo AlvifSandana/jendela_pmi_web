@@ -21,9 +21,11 @@
     .bg-merah {
       background-color: #bd2323
     }
-    .form-control{
-        border-color: #bd2323
+
+    .form-control {
+      border-color: #bd2323
     }
+
     .form-control:focus {
       border-color: #FF0000;
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
@@ -38,7 +40,6 @@
   <div class="sufee-login d-flex align-content-center flex-wrap">
     <div class="container">
       <div class="login-content">
-        @include('layouts.flash')
         <div class="login-form">
           <div class="login-logo mt-2 mb-4">
             <a href="index.html">
@@ -46,6 +47,7 @@
                 style="width: 50%;">
             </a>
           </div>
+          @include('layouts.flash')
           <form action="{{ route('login.do') }}" class="text-center" method="POST">
             @csrf
             @method('POST')
