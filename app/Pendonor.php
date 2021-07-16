@@ -15,7 +15,7 @@ class Pendonor extends Model
     // kolom yang diizinkan mass-assignment
     protected $fillable = [
         'nama_pendonor', 'email', 'password',
-        'alamat', 'telepon', 'status',
+        'alamat', 'telepon', 'ttl', 'golongan_darah', 'status',
         'photo', 'api_token', 'remember_token',
         'roles_id', 'user_id'
     ];

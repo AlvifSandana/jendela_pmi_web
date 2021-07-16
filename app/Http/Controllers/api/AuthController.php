@@ -23,7 +23,8 @@ class AuthController extends Controller
                 'email'         => 'required|email|unique:pendonor',
                 'password'      => 'required',
                 'alamat'        => 'required',
-                'telepon'       => 'required',
+                'ttl'           => 'required',
+                'golongan_darah'=> 'required'
             ];
             // validation error messages
             $message = [
@@ -55,7 +56,9 @@ class AuthController extends Controller
                 'email'         => $request->email,
                 'password'      => Hash::make($request->password),
                 'alamat'        => $request->alamat,
-                'telepon'       => $request->telepon,
+                'telepon'       => '',
+                'ttl'           => $request->ttl,
+                'golongan_darah'=> $request->golongan_darah,
                 'status'        => '',
                 'photo'         => '',
                 'api_token'     => Hash::make($request->email),
@@ -73,7 +76,8 @@ class AuthController extends Controller
                     'nama'      => $reg_data['nama_pendonor'],
                     'email'     => $reg_data['email'],
                     'alamat'    => $reg_data['alamat'],
-                    'telepon'   => $reg_data['telepon'],
+                    'ttl'   => $reg_data['ttl'],
+                    'golongan_darah' => $reg_data['golongan_darah'],
                     'api_token' => $reg_data['api_token']
                 ]
             ], 201);
@@ -114,19 +118,28 @@ class AuthController extends Controller
             }
             // lolos validasi, cek email dan password
             $pendonor = Pendonor::where('email', $request->email)->first();
-            if (Hash::check($request->password, $pendonor->password)) {
-                return response()->json([
-                    'status'    => 'success',
-                    'message'   => 'Berhasil login',
-                    'data'      => $pendonor
-                ], 200);
+            if ($pendonor){
+                if (Hash::check($request->password, $pendonor->password)) {
+                    return response()->json([
+                        'status'    => 'success',
+                        'message'   => 'Berhasil login',
+                        'data'      => [$pendonor]
+                    ], 200);
+                } else {
+                    return response()->json([
+                        'status'    => 'failed',
+                        'message'   => 'password salah!',
+                        'data'      => []
+                    ], 401);
+                }
             } else {
                 return response()->json([
                     'status'    => 'failed',
-                    'message'   => 'email atau password salah!',
+                    'message'   => 'email salah!',
                     'data'      => []
                 ], 401);
             }
+
         } catch (\Throwable $th) {
             // catch error
             return response()->json([
