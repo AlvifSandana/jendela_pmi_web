@@ -76,7 +76,7 @@ class AuthController extends Controller
                     'nama'      => $reg_data['nama_pendonor'],
                     'email'     => $reg_data['email'],
                     'alamat'    => $reg_data['alamat'],
-                    'ttl'   => $reg_data['ttl'],
+                    'ttl'       => $reg_data['ttl'],
                     'golongan_darah' => $reg_data['golongan_darah'],
                     'api_token' => $reg_data['api_token']
                 ]

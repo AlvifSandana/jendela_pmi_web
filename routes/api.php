@@ -24,5 +24,6 @@ Route::post('/login/pendonor', 'api\AuthController@loginPendonor')->name('api.au
 Route::apiResources([
     'jadwaldonor'   => 'api\JadwalDonorController',
     'kegiatan'      => 'api\KegiatanController',
-    'stokdarah'     => 'api\StokDarahController'
+    'stokdarah'     => 'api\StokDarahController',
+    'pendonor'      => 'api\PendonorController'
 ]);
