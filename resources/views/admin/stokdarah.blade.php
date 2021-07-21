@@ -44,6 +44,71 @@
                         <th>O</th>
                         <th>Jumlah</th>
                     </thead>
+                    <tbody class="text-center">
+                        <?php
+                            $n_wb = 0;
+                            $n_prc = 0;
+                            $n_tc = 0;
+                            $n_ffp = 0;
+                            $n_ahf = 0;
+                            $n_lp = 0;
+                            $n_we = 0;
+                            $n_fp = 0;
+                            $n_leucodeplete = 0;
+                        ?>
+                        <tr>
+                            <td>1</td>
+                            <td>WB</td>
+                            @foreach ($wb as $item)
+                                <td>{{ $item->jumlah }}<?php $n_wb += $item->jumlah?></td>
+                            @endforeach
+                            <td>{{ $n_wb }}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>PRC</td>
+                            @foreach ($prc as $item)
+                                <td>{{ $item->jumlah }}<?php $n_prc += $item->jumlah?></td>
+                            @endforeach
+                            <td>{{ $n_prc }}</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>TC</td>
+                            @foreach ($tc as $item)
+                                <td>{{ $item->jumlah }}<?php $n_tc += $item->jumlah?></td>
+                            @endforeach
+                            <td>{{ $n_tc }}</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>FFP</td>
+                            @foreach ($ffp as $item)
+                                <td>{{ $item->jumlah }}<?php $n_ffp += $item->jumlah?></td>
+                            @endforeach
+                            <td>{{ $n_ffp }}</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>AHF</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>LP</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>WE</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>FP</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Leucodeplete</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
