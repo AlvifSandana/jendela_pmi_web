@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class PendonorController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('tokencheck');
+    }
     /**
      * Display the specified resource.
      *

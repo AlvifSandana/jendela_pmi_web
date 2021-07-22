@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class StokDarahController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('tokencheck');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -25,5 +25,6 @@ Route::apiResources([
     'jadwaldonor'   => 'api\JadwalDonorController',
     'kegiatan'      => 'api\KegiatanController',
     'stokdarah'     => 'api\StokDarahController',
-    'pendonor'      => 'api\PendonorController'
+    'pendonor'      => 'api\PendonorController',
+    'mobileunit'    => 'api\MUController'
 ]);

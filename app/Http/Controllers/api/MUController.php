@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\InformasiKegiatan;
 use Illuminate\Http\Request;
+use App\MobileUnit;
 
-class KegiatanController extends Controller
+class MUController extends Controller
 {
     public function __construct()
     {
         $this->middleware('tokencheck');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,28 +21,27 @@ class KegiatanController extends Controller
     public function index()
     {
         try {
-            // get data from model
-            $kegiatan = InformasiKegiatan::all();
-            if (count($kegiatan)) {
+            $mobile_unit = MobileUnit::all();
+            if (count($mobile_unit) > 0) {
                 return response()->json([
                     'status'    => 'success',
-                    'message'   => 'Data tersedia',
-                    'data'      => $kegiatan
+                    'message'   => 'Data tersedia.',
+                    'data'      => $mobile_unit
                 ], 200);
             } else {
                 return response()->json([
                     'status'    => 'failed',
-                    'message'   => 'Data tidak tersedia',
-                    'data'      => []
-                ], 404);
+                    'message'   => 'Data tidak tersedia.',
+                    'data'      => $mobile_unit
+                ], 200);
             }
+
         } catch (\Throwable $th) {
-            // when error
             return response()->json([
                 'status'    => 'error',
                 'message'   => $th->getMessage(),
                 'data'      => []
-            ], 500);
+            ], 200);
         }
     }
 
