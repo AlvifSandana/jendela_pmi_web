@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Pendonor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class PendonorController extends Controller
@@ -55,13 +56,16 @@ class PendonorController extends Controller
                 ], 200);
             }
             // lolos validasi, perbarui data pendonor
-            $pendonor = Pendonor::where('id', $id)->update([
+            Pendonor::where('id', $id)->update([
                 'nama_pendonor' => $request->nama_pendonor,
                 'email'         => $request->email,
-                'password'      => $request->password,
-                'alamat'        => $request->alamat
+                'password'      => Hash::make($request->password),
+                'alamat'        => $request->alamat,
+                'ttl'           => $request->ttl,
+                'golongan_darah'=> $request->golongan_darah
             ]);
-            $pendonor->save();
+
+            $pendonor = Pendonor::where('id', $id)->first();
             // response
             return response()->json([
                 'status'    => 'success',
