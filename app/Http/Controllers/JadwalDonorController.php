@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\MobileUnit;
 use Illuminate\Http\Request;
 use App\NotifikasiWaktuDonor;
 
@@ -14,7 +15,7 @@ class JadwalDonorController extends Controller
     {
         try {
             // ambil data dari model
-            $jadwal_donor = NotifikasiWaktuDonor::all();
+            $jadwal_donor = MobileUnit::all();
             // tampilkan view beserta data
             return view('admin.jadwaldd', compact('jadwal_donor'));
         } catch (\Throwable $th) {

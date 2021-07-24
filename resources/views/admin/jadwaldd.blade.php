@@ -42,7 +42,17 @@
                         <th>Instansi</th>
                         <th>Tempat</th>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        @foreach ($jadwal_donor as $item)
+                        <tr class="text-center">
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->tanggal_donor }}</td>
+                            <td>{{ $item->waktu_mulai }}</td>
+                            <td>{{ $item->lokasi_donor }}</td>
+                            <td>{{ $item->deskripsi }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -38,11 +38,21 @@
                     <thead class="text-center">
                         <th>No</th>
                         <th>Nama</th>
-                        <th>NIK</th>
-                        <th>Tanggal Donor</th>
+                        <th>Tempat, Tanggal Lahir</th>
+                        <th>Alamat</th>
                         <th>No Telepon</th>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        @foreach ($pendonor as $item)
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->nama_pendonor }}</td>
+                            <td>{{ $item->ttl }}</td>
+                            <td>{{ $item->alamat }}</td>
+                            <td>{{ $item->telepon }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
