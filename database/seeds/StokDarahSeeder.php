@@ -93,6 +93,106 @@ class StokDarahSeeder extends Seeder
                 'jenis_darah'   => 'O',
                 'jumlah'        => 9
             ],
+            [
+                'produk'        => 'AHF',
+                'jenis_darah'   => 'A',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'AHF',
+                'jenis_darah'   => 'B',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'AHF',
+                'jenis_darah'   => 'AB',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'AHF',
+                'jenis_darah'   => 'O',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'LP',
+                'jenis_darah'   => 'A',
+                'jumlah'        =>  0
+            ],
+            [
+                'produk'        => 'LP',
+                'jenis_darah'   => 'B',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'LP',
+                'jenis_darah'   => 'AB',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'LP',
+                'jenis_darah'   => 'O',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'WE',
+                'jenis_darah'   => 'A',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'WE',
+                'jenis_darah'   => 'B',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'WE',
+                'jenis_darah'   => 'AB',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'WE',
+                'jenis_darah'   => 'O',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'FP',
+                'jenis_darah'   => 'A',
+                'jumlah'        =>  0
+            ],
+            [
+                'produk'        => 'FP',
+                'jenis_darah'   => 'B',
+                'jumlah'        =>  0
+            ],
+            [
+                'produk'        => 'FP',
+                'jenis_darah'   => 'AB',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'FP',
+                'jenis_darah'   => 'O',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'Leucodeplete',
+                'jenis_darah'   => 'A',
+                'jumlah'        =>  0
+            ],
+            [
+                'produk'        => 'Leucodeplete',
+                'jenis_darah'   => 'B',
+                'jumlah'        =>  0
+            ],
+            [
+                'produk'        => 'Leucodeplete',
+                'jenis_darah'   => 'AB',
+                'jumlah'        => 0
+            ],
+            [
+                'produk'        => 'Leucodeplete',
+                'jenis_darah'   => 'O',
+                'jumlah'        => 0
+            ],
         ]);
     }
 }

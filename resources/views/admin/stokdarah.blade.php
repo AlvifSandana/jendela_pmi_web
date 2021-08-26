@@ -21,6 +21,7 @@
 @section('content')
   <div class="content mt-3">
     <div class="col-md-12">
+      @include('layouts.flash')
       <div class="card">
         <div class="card-header container-fluid">
             <div class="row">
@@ -28,7 +29,7 @@
                     <h4 class="p-3">Stok Darah</h4>
                 </div>
                 <div class="col-md-3 float-right">
-                    <button class="btn rounded shadow bg-pink text-black mt-2 float-right">Update</button>
+                    <button class="btn rounded shadow bg-pink text-black mt-2 float-right" data-toggle="modal" data-target="#importModal">Update</button>
                 </div>
             </div>
         </div>
@@ -59,59 +60,96 @@
                         <tr>
                             <td>1</td>
                             <td>WB</td>
-                            @foreach ($wb as $item)
-                                <td>{{ $item->jumlah }}<?php $n_wb += $item->jumlah?></td>
+                            @foreach ($data[0]['stok'] as $item)
+                            <td>{{$item}}</td>
                             @endforeach
-                            <td>{{ $n_wb }}</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>PRC</td>
-                            @foreach ($prc as $item)
-                                <td>{{ $item->jumlah }}<?php $n_prc += $item->jumlah?></td>
+                            @foreach ($data[1]['stok'] as $item)
+                            <td>{{$item}}</td>
                             @endforeach
-                            <td>{{ $n_prc }}</td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>TC</td>
-                            @foreach ($tc as $item)
-                                <td>{{ $item->jumlah }}<?php $n_tc += $item->jumlah?></td>
+                            @foreach ($data[2]['stok'] as $item)
+                            <td>{{$item}}</td>
                             @endforeach
-                            <td>{{ $n_tc }}</td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>FFP</td>
-                            @foreach ($ffp as $item)
-                                <td>{{ $item->jumlah }}<?php $n_ffp += $item->jumlah?></td>
+                            @foreach ($data[3]['stok'] as $item)
+                            <td>{{$item}}</td>
                             @endforeach
-                            <td>{{ $n_ffp }}</td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>AHF</td>
+                            @foreach ($data[4]['stok'] as $item)
+                            <td>{{$item}}</td>
+                            @endforeach
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>LP</td>
+                            @foreach ($data[5]['stok'] as $item)
+                            <td>{{$item}}</td>
+                            @endforeach
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>WE</td>
+                            @foreach ($data[6]['stok'] as $item)
+                            <td>{{$item}}</td>
+                            @endforeach
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>FP</td>
+                            @foreach ($data[7]['stok'] as $item)
+                            <td>{{$item}}</td>
+                            @endforeach
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>Leucodeplete</td>
+                            @foreach ($data[8]['stok'] as $item)
+                            <td>{{$item}}</td>
+                            @endforeach
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+      </div>
+    </div>
+  </div>
+  {{-- import excel modal --}}
+  <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="importModalLabel">Import .xls .xlsx</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{{route('admin.stokdarah.import')}}" method="post" enctype="multipart/form-data">
+              @csrf
+              @method('POST')
+              <div class="form-group">
+                  <input type="file" name="file">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-danger">Import</button>
+        </div>
+        </form>
       </div>
     </div>
   </div>

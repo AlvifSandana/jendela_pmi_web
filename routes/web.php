@@ -20,6 +20,7 @@ Route::get('logout', 'AuthController@logout')->name('logout');
 
 // Stok Darah route
 Route::get('admin/stokdarah', 'StokDarahController@index')->name('admin.stokdarah.index')->middleware('auth');
+Route::post('admin/stokdarah/import', 'StokDarahController@importExcel')->name('admin.stokdarah.import')->middleware('auth');
 
 // Jadwal Donor route
 Route::get('admin/jadwaldonor', 'JadwalDonorController@index')->name('admin.jadwaldonor.index')->middleware('auth');

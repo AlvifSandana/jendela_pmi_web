@@ -121,49 +121,49 @@ class StokDarahController extends Controller
                     switch ($st->produk) {
                         case 'WB':
                             if ($st->jenis_darah == "A") {
-                                $data_respon[0]["stok"]["A"] = (int)$st->jumlah;
+                                $data_respon[0]["stok"]["A"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "B") {
-                                $data_respon[0]["stok"]["B"] = (int)$st->jumlah;
+                                $data_respon[0]["stok"]["B"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "AB") {
-                                $data_respon[0]["stok"]["AB"] = (int)$st->jumlah;
+                                $data_respon[0]["stok"]["AB"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "O") {
-                                $data_respon[0]["stok"]["O"] = (int)$st->jumlah;
+                                $data_respon[0]["stok"]["O"] += (int)$st->jumlah;
                             }
                             break;
 
                         case 'PRC':
                             if ($st->jenis_darah == "A") {
-                                $data_respon[1]["stok"]["A"] = (int)$st->jumlah;
+                                $data_respon[1]["stok"]["A"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "B") {
-                                $data_respon[1]["stok"]["B"] = (int)$st->jumlah;
+                                $data_respon[1]["stok"]["B"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "AB") {
-                                $data_respon[1]["stok"]["AB"] = (int)$st->jumlah;
+                                $data_respon[1]["stok"]["AB"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "O") {
-                                $data_respon[1]["stok"]["O"] = (int)$st->jumlah;
+                                $data_respon[1]["stok"]["O"] += (int)$st->jumlah;
                             }
                             break;
 
                         case 'TC':
                             if ($st->jenis_darah == "A") {
-                                $data_respon[2]["stok"]["A"] = (int)$st->jumlah;
+                                $data_respon[2]["stok"]["A"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "B") {
-                                $data_respon[2]["stok"]["B"] = (int)$st->jumlah;
+                                $data_respon[2]["stok"]["B"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "AB") {
-                                $data_respon[2]["stok"]["AB"] = (int)$st->jumlah;
+                                $data_respon[2]["stok"]["AB"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "O") {
-                                $data_respon[2]["stok"]["0"] = (int)$st->jumlah;
+                                $data_respon[2]["stok"]["0"] += (int)$st->jumlah;
                             }
                             break;
 
                         case 'FFP':
                             if ($st->jenis_darah == "A") {
-                                $data_respon[3]["stok"]["A"] = (int)$st->jumlah;
+                                $data_respon[3]["stok"]["A"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "B") {
-                                $data_respon[3]["stok"]["B"] = (int)$st->jumlah;
+                                $data_respon[3]["stok"]["B"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "AB") {
-                                $data_respon[3]["stok"]["AB"] = (int)$st->jumlah;
+                                $data_respon[3]["stok"]["AB"] += (int)$st->jumlah;
                             } elseif ($st->jenis_darah == "O") {
-                                $data_respon[3]["stok"]["0"] = (int)$st->jumlah;
+                                $data_respon[3]["stok"]["0"] += (int)$st->jumlah;
                             }
                             break;
 
