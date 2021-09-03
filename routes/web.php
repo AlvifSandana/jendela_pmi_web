@@ -24,9 +24,12 @@ Route::post('admin/stokdarah/import', 'StokDarahController@importExcel')->name('
 
 // Jadwal Donor route
 Route::get('admin/jadwaldonor', 'JadwalDonorController@index')->name('admin.jadwaldonor.index')->middleware('auth');
+Route::post('admin/jadwaldonor/import', 'JadwalDonorController@importExcel')->name('admin.jadwaldonor.import')->middleware('auth');
 
 // Data Pendonor route
 Route::get('admin/pendonor', 'PendonorController@index')->name('admin.pendonor.index')->middleware('auth');
+Route::post('admin/pendonor/import', 'PendonorController@importExcel')->name('admin.pendonor.import')->middleware('auth');
 
 // Kegiatan route
 Route::get('admin/kegiatan', 'KegiatanController@index')->name('admin.kegiatan.index')->middleware('auth');
+Route::post('admin/kegiatan/import', 'KegiatanController@importExcel')->name('admin.kegiatan.import')->middleware('auth');

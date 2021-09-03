@@ -54,7 +54,7 @@ class PendonorController extends Controller
             if ($validator->fails()) {
                 return response()->json([
                     'status'    => 'failed',
-                    'message'   => $validator->getMessageBag(),
+                    'message'   => 'validation failed',
                     'data'      => []
                 ], 200);
             }

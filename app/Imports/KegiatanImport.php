@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\StokDarah;
+use App\InformasiKegiatan;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class StokDarahImport implements ToModel, WithHeadingRow
+class KegiatanImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,10 +15,12 @@ class StokDarahImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new StokDarah([
-            'produk' => $row[2],
-            'jenis_darah' => $row[1],
-            'jumlah' => 1,
+        return new InformasiKegiatan([
+            'nama_kegiatan' => $row['kegiatan'],
+            'tanggal_kegiatan' => $row['tanggal'],
+            'lokasi_kegiatan' => $row['lokasi'],
+            'user_id' => 1,
+            'foto' => $row['foto']
         ]);
     }
 

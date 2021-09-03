@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\StokDarah;
+use App\MobileUnit;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class StokDarahImport implements ToModel, WithHeadingRow
+class JadwalDonor implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,10 +15,12 @@ class StokDarahImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new StokDarah([
-            'produk' => $row[2],
-            'jenis_darah' => $row[1],
-            'jumlah' => 1,
+        return new MobileUnit([
+            'tanggal_donor' => $row[1],
+            'lokasi_donor' => $row[2],
+            'waktu_mulai' => $row[3],
+            'waktu_selesai' => $row[4],
+            'deskripsi' => $row[5]
         ]);
     }
 

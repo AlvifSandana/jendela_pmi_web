@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Imports\StokDarahImport;
 use Illuminate\Http\Request;
 use App\StokDarah;
-use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class StokDarahController extends Controller
@@ -168,11 +167,11 @@ class StokDarahController extends Controller
                             break;
                     }
                 }
-
+                // hitung total stok
                 for ($i = 0; $i < count($data); $i++) {
                     $data[$i]["stok"]["Total"] = $data[$i]["stok"]["A"] + $data[$i]["stok"]["B"] + $data[$i]["stok"]["AB"] + $data[$i]["stok"]["O"];
                 }
-
+                // tampilkan view beserta data
                 return view('admin.stokdarah', compact('data'))->with('success', 'Data Tersedia');
             } else {
                 return view('admin.stokdarah')->withErrors('Data Kosong');
@@ -189,7 +188,7 @@ class StokDarahController extends Controller
      */
     public function importExcel(Request $request)
     {
-        // try {
+        try {
             // validate uploaded file
             $this->validate(
                 $request,
@@ -209,8 +208,8 @@ class StokDarahController extends Controller
             Excel::import(new StokDarahImport, public_path('/uploaded/'.$filename));
             // redirect to stok darah index page
             return redirect()->route('admin.stokdarah.index')->with('success', 'Berhasil import data ke database.');
-        // } catch (\Throwable $th) {
-        //     return redirect()->route('admin.stokdarah.index')->withErrors($th->getMessage());
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.stokdarah.index')->withErrors($th->getMessage());
+        }
     }
 }
