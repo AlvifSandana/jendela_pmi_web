@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\JadwalDonor;
+use App\Imports\JadwalDonorImport;
 use App\MobileUnit;
 use Illuminate\Http\Request;
-use App\NotifikasiWaktuDonor;
 use Maatwebsite\Excel\Facades\Excel;
 
 class JadwalDonorController extends Controller
@@ -45,7 +44,7 @@ class JadwalDonorController extends Controller
             // save file to public folder
             $file->move('uploaded', $filename);
             // import file to database
-            Excel::import(new JadwalDonor, public_path('/uploaded/'.$filename));
+            Excel::import(new JadwalDonorImport, public_path('/uploaded/'.$filename));
             // redirect to jadwal donor page index
             return redirect()->route('admin.jadwaldonor.index')->with('success', 'Berhasil import data ke database.');
         } catch (\Throwable $th) {

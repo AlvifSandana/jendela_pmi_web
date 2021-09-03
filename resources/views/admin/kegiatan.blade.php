@@ -45,7 +45,7 @@
                 <th>Lokasi</th>
                 <th>Foto</th>
               </thead>
-              <tbody class="table-center">
+              <tbody class="text-center">
                 @foreach ($kegiatan as $item)
                   <tr>
                     <td>{{ $item->id_kegiatan }}</td>

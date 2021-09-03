@@ -21,6 +21,7 @@
 @section('content')
   <div class="content mt-3">
     <div class="col-md-12">
+      @include('layouts.flash')
       <div class="card">
         <div class="card-header container-fluid">
             <div class="row">
@@ -42,7 +43,7 @@
                         <th>Instansi</th>
                         <th>Tempat</th>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         @foreach ($jadwal_donor as $item)
                         <tr class="text-center">
                             <td>{{ $item->id }}</td>
@@ -70,7 +71,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{route('admin.jadwaldonor.import')}}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('admin.jadwaldonor.import') }}" method="post" enctype="multipart/form-data">
               @csrf
               @method('POST')
               <div class="form-group">
