@@ -10,7 +10,7 @@ class MUController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('tokencheck');
+        // $this->middleware('tokencheck');
     }
 
     /**

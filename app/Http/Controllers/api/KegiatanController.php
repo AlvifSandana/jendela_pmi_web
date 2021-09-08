@@ -10,7 +10,7 @@ class KegiatanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('tokencheck');
+        // $this->middleware('tokencheck');
     }
     /**
      * Display a listing of the resource.

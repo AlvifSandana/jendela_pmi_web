@@ -167,6 +167,7 @@ class StokDarahController extends Controller
                             break;
                     }
                 }
+                
                 // hitung total stok
                 for ($i = 0; $i < count($data); $i++) {
                     $data[$i]["stok"]["Total"] = $data[$i]["stok"]["A"] + $data[$i]["stok"]["B"] + $data[$i]["stok"]["AB"] + $data[$i]["stok"]["O"];
@@ -174,7 +175,7 @@ class StokDarahController extends Controller
                 // tampilkan view beserta data
                 return view('admin.stokdarah', compact('data'))->with('success', 'Data Tersedia');
             } else {
-                return view('admin.stokdarah')->withErrors('Data Kosong');
+                return view('admin.stokdarah', compact('data'))->withErrors('Data Kosong');
             }
         } catch (\Throwable $th) {
             // tangkap error dan tampilkan berupa flash message
@@ -201,14 +202,47 @@ class StokDarahController extends Controller
             );
             // get file and filename
             $file = $request->file('file');
-            $filename = rand().$file->getClientOriginalName();
+            $filename = rand() . $file->getClientOriginalName();
             // save file to public folder
             $file->move('uploaded', $filename);
             // import file to database
-            Excel::import(new StokDarahImport, public_path('/uploaded/'.$filename));
+            Excel::import(new StokDarahImport, public_path('/uploaded/' . $filename));
             // redirect to stok darah index page
             return redirect()->route('admin.stokdarah.index')->with('success', 'Berhasil import data ke database.');
         } catch (\Throwable $th) {
+            return redirect()->route('admin.stokdarah.index')->withErrors($th->getMessage());
+        }
+    }
+
+    /**
+     * create a new stok darah
+     */
+    public function createStokDarah(Request $request)
+    {
+        try {
+            // validate input data
+            $this->validate(
+                $request,
+                [
+                    'produk' => 'required',
+                    'jenis_darah' => 'required',
+                    'jumlah' => 'required'
+                ],
+                [
+                    'required' => ':attribute tidak boleh kosong!'
+                ]
+            );
+            // create a stok darah
+            $stokdarah = StokDarah::create([
+                'produk' => $request->produk,
+                'jenis_darah' => $request->jenis_darah,
+                'jumlah' => $request->jumlah
+            ]);
+            $stokdarah->save();
+            // redirect to stok darah page
+            return redirect()->route('admin.stokdarah.index')->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            //throw $th;
             return redirect()->route('admin.stokdarah.index')->withErrors($th->getMessage());
         }
     }

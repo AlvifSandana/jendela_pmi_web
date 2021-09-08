@@ -51,4 +51,39 @@ class KegiatanController extends Controller
             return redirect()->route('admin.kegiatan.index')->withErrors($th->getMessage());
         }
     }
+
+    /**
+     * create a new kegiatan
+     */
+    public function createKegiatan(Request $request)
+    {
+        try {
+            // validate input data
+            $this->validate(
+                $request,
+                [
+                    'nama_kegiatan' => 'required',
+                    'tanggal_kegiatan' => 'required',
+                    'lokasi_kegiatan' => 'required',
+                ],
+                [
+                    'required' => ':attribute tidak boleh kosong!'
+                ]
+            );
+            // create kegiatan
+            $kegiatan = InformasiKegiatan::create([
+                'nama_kegiatan' => $request->nama_kegiatan,
+                'tanggal_kegiatan' => $request->tanggal_kegiatan,
+                'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                'user_id' => 1,
+                'foto' => 'picture.png'
+            ]);
+            $kegiatan->save();
+            // redirect to kegiatan page
+            return redirect()->route('admin.kegiatan.index')->with('success', 'Data berhasil ditambahkan.');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->route('admin.kegiatan.index')->withErrors($th->getMessage());
+        }
+    }
 }

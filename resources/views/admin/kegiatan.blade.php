@@ -43,7 +43,6 @@
                 <th>Nama Kegiatan</th>
                 <th>Tanggal</th>
                 <th>Lokasi</th>
-                <th>Foto</th>
               </thead>
               <tbody class="text-center">
                 @foreach ($kegiatan as $item)
@@ -52,7 +51,6 @@
                     <td>{{ $item->nama_kegiatan }}</td>
                     <td>{{ $item->tanggal_kegiatan }}</td>
                     <td>{{ $item->lokasi_kegiatan }}</td>
-                    <td>{{ $item->foto }}</td>
                   </tr>
                 @endforeach
               </tbody>
@@ -74,22 +72,73 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('admin.kegiatan.import') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('POST')
-            <div class="form-group">
-              <input type="file" name="file">
+          <div class="row">
+            <div class="col">
+              <form action="{{ route('admin.kegiatan.import') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+                <div class="form-group">
+                  <input type="file" name="file">
+                </div>
+                <button type="submit" class="btn btn-danger float-right">Import</button>
+              </form>
             </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col">
+              <form action="{{ route('admin.kegiatan.create') }}" method="post">
+                @csrf
+                @method('POST')
+                <div class="form-group">
+                  <label for="nama_kegiatan">Nama Kegiatan</label>
+                  <input type="text" name="nama_kegiatan" class="form-control">
+                  <label for="tanggal_kegiatan">Tanggal</label>
+                  <input type="text" name="tanggal_kegiatan" class="form-control">
+                  <label for="lokasi_kegiatan">Lokasi</label>
+                  <input type="text" name="lokasi_kegiatan" class="form-control">
+                </div>
+                <button id="btnadd" class="btn btn-success float-right">Tambah</button>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-danger">Import</button>
-        </div>
-        </form>
       </div>
     </div>
   </div>
 @endsection
 
 @section('js')
+  <script>
+    $(document).ready(function() {
+      $('#btnadd').on('click', function() {
+        var nama_kegiatan = $('input[name="nama_kegiatan"]').val()
+        var tanggal_kegiatan = $('input[name="tanggal_kegiatan"]').val()
+        var lokasi_kegiatan = $('input[name="lokasi_kegiatan"]').val()
+        if (nama_kegiatan != "" && tanggal_kegiatan != "" && lokasi_kegiatan != "") {
+          $.ajax({
+            url: "{{ route('admin.kegiatan.create') }}",
+            type: "POST",
+            data: {
+              _token: {{ Session::token() }},
+              nama_kegiatan: nama_kegiatan,
+              tanggal_kegiatan: tanggal_kegiatan,
+              lokasi_kegiatan: lokasi_kegiatan,
+            },
+            cache: false,
+            success: function(result) {
+              var res = JSON.parse(result);
+              if (res.statusCode == 200) {
+                alert("Data berhasil ditambahkan.");
+              } else {
+                alert("Error happened :(");
+              }
+            }
+          });
+        } else {
+          alert('Mohon lengkapi field!');
+        }
+      });
+    });
+  </script>
 @endsection

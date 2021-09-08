@@ -5,6 +5,10 @@ namespace App\Imports;
 use App\StokDarah;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Imports\HeadingRowFormatter;
+
+// no heading row format
+HeadingRowFormatter::default('none');
 
 class StokDarahImport implements ToModel, WithHeadingRow
 {
@@ -16,8 +20,8 @@ class StokDarahImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new StokDarah([
-            'produk' => $row[2],
-            'jenis_darah' => $row[1],
+            'jenis_darah' => $row["Gol Darah"],
+            'produk' => $row["Produk"],
             'jumlah' => 1,
         ]);
     }
